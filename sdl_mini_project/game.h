@@ -2,7 +2,7 @@
 #define GAME__H
 
 #include <iostream>
-#include <SDL.h>
+#include <SDL2\SDL.h>
 #include "params.h"
 #include "box.h"
 
