@@ -7,7 +7,7 @@
 #include "Hero.h"
 #include "SDL_Utils.h"
 
-enum Action {LEFT, RIGHT, UP, DOWN, NONE, QUIT};
+enum Action {LEFT, RIGHT, UP, DOWN, NONE, QUIT, PAUSE};
 
 class Game {
 public:

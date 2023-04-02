@@ -21,10 +21,16 @@ int main(int argc, char *argv[])
     Game game;
     game.init();
 
+    bool paused = false;
+
     game.render();
     do {
         Action action = getUserAction();
         if (action == QUIT) break;
+        if (action == PAUSE) {
+                paused = !paused;
+        }
+        if (paused) continue;
 
         game.move(action);
         game.render();
@@ -49,6 +55,7 @@ Action getUserAction() {
             case SDLK_RIGHT: return RIGHT;
             case SDLK_DOWN: return DOWN;
             case SDLK_UP: return UP;
+            case SDLK_PAUSE: return PAUSE;
             default: return NONE;
         }
     }
