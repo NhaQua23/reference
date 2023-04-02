@@ -31,9 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
-		<Unit filename="Hero.h" />
+		<Unit filename="Position.h" />
 		<Unit filename="SDL_Utils.h" />
+		<Unit filename="Snake.cpp" />
+		<Unit filename="Snake.h" />
+		<Unit filename="UI.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>
