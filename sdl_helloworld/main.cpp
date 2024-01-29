@@ -72,19 +72,24 @@ void drawSomething(SDL_Window* window, SDL_Renderer* renderer) {
 
 int main(int argc, char* argv[])
 {
+    //Khởi tạo môi trường đồ họa
     SDL_Window* window;
     SDL_Renderer* renderer;
     initSDL(window, renderer, SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
 
+    //Xóa màn hình
     SDL_RenderClear(renderer);
 
+    //Vẽ gì đó
     drawSomething(window, renderer);
 
+    //Hiện bản vẽ ra màn hình
     //Khi thông thường chạy với môi trường bình thường ở nhà
     SDL_RenderPresent(renderer);
-   //Khi chạy ở máy thực hành WinXP ở trường (máy ảo)
-   //SDL_UpdateWindowSurface(window);
+    //Khi chạy ở máy thực hành WinXP ở trường (máy ảo)
+    //SDL_UpdateWindowSurface(window);
 
+    //Đợi phím bất kỳ trước khi đóng môi trường đồ họa và kết thúc chương trình
     waitUntilKeyPressed();
     quitSDL(window, renderer);
     return 0;
