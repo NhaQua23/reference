@@ -31,8 +31,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Button.h" />
 		<Unit filename="Game.h" />
-		<Unit filename="Hero.h" />
 		<Unit filename="SDL_Utils.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />

@@ -15,6 +15,9 @@ using namespace std;
 
 Action getUserAction();
 
+void showMenu(SDL_Renderer*) ;
+SDL_Point getMouseAction() ;
+
 int main(int argc, char *argv[])
 {
     srand(time(0));
@@ -23,6 +26,7 @@ int main(int argc, char *argv[])
 
     bool paused = false;
 
+    showMenu(game.renderer);
     game.render();
     do {
         Action action = getUserAction();
@@ -42,6 +46,35 @@ int main(int argc, char *argv[])
 
     game.destroy();
     return 0;
+}
+
+void showMenu(SDL_Renderer* renderer) {
+        SDL_Rect filled_rect;
+        filled_rect.x = 100;
+        filled_rect.y = 100;
+        filled_rect.w = 10;
+        filled_rect.h = 10;
+        SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255); // green
+        SDL_RenderFillRect(renderer, &filled_rect);
+        SDL_RenderPresent( renderer );
+        waitUntilKeyPressed();
+    }
+
+SDL_Point getMouseAction() {
+    SDL_Event e;
+    int mouseX;
+    int mouseY;
+    SDL_Point mouse;
+    while(SDL_PollEvent(&e)){
+        switch(e.type){
+            case SDL_MOUSEMOTION:
+                mouse.x = e.motion.x;
+                mouse.y = e.motion.y;
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                if(e.button.button == SDL_BUTTON_LEFT) return mouse;
+        }
+    }
 }
 
 Action getUserAction() {
