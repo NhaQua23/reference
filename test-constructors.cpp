@@ -17,11 +17,19 @@ struct Point {
         cerr << "Point(int, int) " << this << "\n";
         init(_x, _y);
     }
+    Point(Point& p) {
+        cerr << "Point(Point&) " << this << "\n";
+        init(p.x, p.y);
+    }
     Point(const Point& p) {
         cerr << "Point(const Point&) " << this << "\n";
         init(p.x, p.y);
     }
-    Point& operator=(const Point& p){
+    void operator=(const Point& p){
+        cerr << "void const operator= " << this << "\n";
+        init(p.x, p.y);
+    }
+    Point& operator=(Point& p){
         cerr << "operator= " << this << "\n";
         init(p.x, p.y);
     }
@@ -55,7 +63,7 @@ int main () {
     cerr << "\ncalling g (pass by reference). address of g'p should be " << &p0 << ", same as p1's\n";
     g(p0);
 
-    Point* ptr = foo();
+    const Point* ptr = foo();
     cerr << "\nfoo ended. " << ptr << " is in heap memory and has not been destroyed yet \n";
 
     cerr << "\np0 = p1\n";
